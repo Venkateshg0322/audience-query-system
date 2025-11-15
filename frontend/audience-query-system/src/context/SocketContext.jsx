@@ -16,7 +16,7 @@ export const SocketProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       
       // Initialize socket connection
-      const newSocket = io('http://localhost:5000', {
+      const newSocket = io(process.env.VITE_BACKEND_URL?.replace('/api', '') || 'http://localhost:5000', {
         auth: { token }
       });
 
